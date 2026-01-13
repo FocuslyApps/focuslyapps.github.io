@@ -184,186 +184,358 @@
       font-size: 14px
     }
 
-    /* CTA */
-    .big-cta {
-      margin-top: 56px;
-      padding: 32px 40px;
-      border-radius: 20px;
+    /* CTA card (responsive, aligns with other sections) */
+    .big-cta.section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      border-radius: 16px;
       background: #fff;
       border: 1px solid var(--border);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto
+      justify-content: space-between;
+      gap: 28px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+      flex-wrap: wrap;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
+    /* left side text area */
+    .big-cta .cta-text {
+      flex: 1 1 360px;
+      min-width: 220px;
+    }
+
+    /* headline + subtext */
+    .big-cta .cta-text h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.05;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .big-cta .cta-text p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* badge container (keeps badge size consistent) */
+    .big-cta .cta-badge {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* App Store badge image */
+    .app-badge img {
+      display: block;
+      height: 52px;
+      /* desktop size */
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Footer center */
     footer {
-      margin-top: 64px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      text-align: center;
       color: var(--muted);
       font-size: 13px;
-      text-align: center
     }
 
-    @media (max-width:800px) {
-      .hero {
-        flex-direction: column;
-        align-items: flex-start
+    /* Mobile adjustments */
+    @media (max-width: 680px) {
+      .big-cta.section {
+        padding: 20px;
+        gap: 14px;
       }
 
-      .left {
-        max-width: 100%
+      .big-cta .cta-text h3 {
+        font-size: 20px;
       }
+
+      /* stack content vertically and center the badge */
+      .big-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .big-cta .cta-badge {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .app-badge img {
+        height: 48px;
+      }
+    }
+
+    /* Compact CTA – mobile first */
+    .cta-compact {
+      max-width: 1100px;
+      margin: 24px auto 32px;
+      padding: 18px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      text-align: left;
+    }
+
+    .cta-compact h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .cta-compact p {
+      margin: 6px 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .appstore-btn img {
+      height: 42px;
+      display: block;
+    }
+
+    /* Desktop enhancement */
+    @media (min-width: 768px) {
+      .cta-compact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .cta-compact p {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Fix CTA horizontal padding & alignment */
+    .cta-compact {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    /* On tablet & desktop keep it centered */
+    @media (min-width: 768px) {
+      .cta-compact {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* App hero (top section) */
+    .app-hero {
+      padding: 24px 16px;
+    }
+
+    .app-hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* App icon */
+    .app-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Text block */
+    .app-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-text p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* App Store button */
+    .appstore-btn img {
+      height: 44px;
+    }
+
+    /* 🔥 Mobile fix */
+    @media (max-width: 640px) {
+      .app-hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .appstore-btn img {
+        margin-top: 8px;
+      }
+    }
+
+    .appstore-btn img {
+      width: 150px;
+      /* adjust as needed */
+      height: auto;
     }
   </style>
 </head>
 
-<body>
-  <div class="container">
-    <header>
-      <div class="logo" id="app-logo">
-        <img src="../assets/gujarati-calendar-logo.png" alt="Gujarati Calendar Pro App logo" />
-      </div>
-      <div>
-        <h1 id="app-name">Gujarati Calendar Pro</h1>
-        <p class="lead" id="mini-desc">Daily Tithi, Choghadiya, Janmrashi, Nakshatra, Solar Timings, Suvichar,
-          Festivals, Ekadashi reminders, and the Vikram Samvat calendar — all in one simple, user-friendly app.</p>
-      </div>
-    </header>
+<!-- Logo Section -->
+<section class="app-hero">
+  <div class="app-hero-content">
+    <img src="../assets/gujarati-calendar-logo.png" alt="Gujarati Calendar Pro" class="app-logo" />
 
-    <div class="hero">
-      <div class="left">
-        <div class="cta">
-          <a href="https://apps.apple.com/app/id6746111809" target="_blank" rel="noopener"><img
-              src="../assets/appstore.svg" alt="Download on the App Store" style="height:58px" /></a>
-          <!-- <a class="btn btn-ghost" href="#screenshots">View Screenshots</a> -->
-        </div>
-      </div>
+    <div class="app-text">
+      <h1>Gujarati Calendar Pro</h1>
+      <p>
+        Daily Tithi, Choghadiya, Janmrashi, Nakshatra, Solar Timings, Suvichar,
+        festivals, Ekadashi reminders, and the Vikram Samvat calendar —
+        all in one simple, user-friendly app.
+      </p>
+
+      <a href="https://apps.apple.com/app/id6746111809" target="_blank" class="appstore-btn">
+        <img src="../assets/appstore.svg" alt="Download on the App Store">
+      </a>
     </div>
   </div>
+</section>
 
-  <!-- Features -->
-  <section id="features" class="section">
-    <h2>Features</h2>
 
-    <div class="cards" style="margin-top:16px">
 
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">📅</div>
-        <h3>Gujarati Panchang</h3>
-        <p>Accurate daily Tithi, Vaar, Janmrashi, and Nakshatra details at one place.</p>
-      </div>
+<!-- Features -->
+<section id="features" class="section">
+  <h2>Features</h2>
 
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">⏰</div>
-        <h3>Choghadiya Timings</h3>
-        <p>Current and upcoming auspicious Choghadiya based on sunrise and sunset.</p>
-      </div>
+  <div class="cards" style="margin-top:16px">
 
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🎉</div>
-        <h3>Festivals & Ekadashi</h3>
-        <p>All major Gujarati festivals with Ekadashi reminders and alerts.</p>
-      </div>
-
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🌞</div>
-        <h3>Solar Timings</h3>
-        <p>Exact local sunrise and sunset timings for daily puja planning.</p>
-      </div>
-
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🗓</div>
-        <h3>Calendar Views</h3>
-        <p>Month-wise Vikram Samvat calendar with public and bank holidays.</p>
-      </div>
-
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">✨</div>
-        <h3>Daily Suvichar</h3>
-        <p>Daily motivational Gujarati Suvichar to start your day positively.</p>
-      </div>
-
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🔔</div>
-        <h3>Smart Notifications</h3>
-        <p>Daily Tithi, Janmrashi and Ekadashi alerts so you never miss important days.</p>
-      </div>
-
-      <div class="feature">
-        <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🔒</div>
-        <h3>Private & Fast</h3>
-        <p>No signup, no ads, on-device storage with fast and lightweight performance.</p>
-      </div>
-
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">📅</div>
+      <h3>Gujarati Panchang</h3>
+      <p>Accurate daily Tithi, Vaar, Janmrashi, and Nakshatra details at one place.</p>
     </div>
-  </section>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <h2>About the App</h2>
-    <p style="color:var(--muted); margin-top:8px; white-space: pre-line;">Stay connected to your Gujarati
-      heritage—anytime, anywhere with just one tap.
-
-      Gujarati Calendar Pro brings you all essential Tithi, Choghadiya, Janmrashi, festival info, and daily timings in
-      one clean & easy-to-use app.
-
-      Daily Essentials:
-      • Tithi: Accurate Tithi & Vaar
-      • Choghadiya: Current & upcoming auspicious time slots
-      • Janmrashi & Nakshatra: Moon rise details for every day
-      • Daily motivational Suvichar – start your day with powerful thoughts
-
-      Festivals:
-      • Major Celebrations: Navratri, Diwali, Uttarayan and more
-      • Ekadashi Reminders: Alerts for every Ekadashi
-
-      Solar Timings:
-      • Sunrise & Sunset: Exact local timings for your pujas
-      • Choghadiya by Sunrise/Sunset: Adjusts automatically
-
-      Calendar Views:
-      • Month-View: Swipe through Vikram Samvat 2081–2082
-      • Banking & Public Holidays: Bank closures and holidays
-
-      Design:
-      • Dark Mode & Material UI: Easy on the eyes, day or night
-      • Lightweight & Fast: Instant load, minimal storage
-
-      Custom Notifications:
-      • Daily Alert: Daily Tithi & Janmrashi
-      • Ekadashi Alert: Dedicated Ekadashi reminder
-
-      Built for You:
-      • On‑device storage—no signup required
-      • No Ads—enjoy an uninterrupted experience
-
-
-      Stay rooted, stay informed — get the app today and keep your Gujarati calendar with you always.</p>
-  </section>
-
-  <!-- Big CTA -->
-  <section class="big-cta section">
-    <div>
-      <h3 style="margin:0">Stay connected to your Gujarati roots</h3>
-      <p style="margin:6px 0 0;color:var(--muted)">Plan your day with accurate Tithi, Choghadiya, and festivals</p>
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">⏰</div>
+      <h3>Choghadiya Timings</h3>
+      <p>Current and upcoming auspicious Choghadiya based on sunrise and sunset.</p>
     </div>
-    <a href="https://apps.apple.com/app/id6746111809" target="_blank" rel="noopener"><img src="../assets/appstore.svg"
-        alt="Download on the App Store" style="height:54px" /></a>
-  </section>
 
-  <footer>
-    <p style="margin-top:24px">© 2026 Gujarati Calendar Pro • All rights reserved</p>
-  </footer>
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🎉</div>
+      <h3>Festivals & Ekadashi</h3>
+      <p>All major Gujarati festivals with Ekadashi reminders and alerts.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🌞</div>
+      <h3>Solar Timings</h3>
+      <p>Exact local sunrise and sunset timings for daily puja planning.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🗓</div>
+      <h3>Calendar Views</h3>
+      <p>Month-wise Vikram Samvat calendar with public and bank holidays.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">✨</div>
+      <h3>Daily Suvichar</h3>
+      <p>Daily motivational Gujarati Suvichar to start your day positively.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🔔</div>
+      <h3>Smart Notifications</h3>
+      <p>Daily Tithi, Janmrashi and Ekadashi alerts so you never miss important days.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;color:var(--primary)">🔒</div>
+      <h3>Private & Fast</h3>
+      <p>No signup, no ads, on-device storage with fast and lightweight performance.</p>
+    </div>
+
   </div>
-  <script>
-    function scrollShots(dir) {
-      const el = document.getElementById('shots');
-      el.scrollBy({ left: dir * 300, behavior: 'smooth' });
-    }
-  </script>
+</section>
+
+<!-- About -->
+<section id="about" class="section">
+  <h2>About the App</h2>
+  <p style="color:var(--muted); margin-top:8px; white-space: pre-line;">Stay connected to your Gujarati
+    heritage—anytime, anywhere with just one tap.
+
+    Gujarati Calendar Pro brings you all essential Tithi, Choghadiya, Janmrashi, festival info, and daily timings in
+    one clean & easy-to-use app.
+
+    Daily Essentials:
+    • Tithi: Accurate Tithi & Vaar
+    • Choghadiya: Current & upcoming auspicious time slots
+    • Janmrashi & Nakshatra: Moon rise details for every day
+    • Daily motivational Suvichar – start your day with powerful thoughts
+
+    Festivals:
+    • Major Celebrations: Navratri, Diwali, Uttarayan and more
+    • Ekadashi Reminders: Alerts for every Ekadashi
+
+    Solar Timings:
+    • Sunrise & Sunset: Exact local timings for your pujas
+    • Choghadiya by Sunrise/Sunset: Adjusts automatically
+
+    Calendar Views:
+    • Month-View: Swipe through Vikram Samvat 2081–2082
+    • Banking & Public Holidays: Bank closures and holidays
+
+    Design:
+    • Dark Mode & Material UI: Easy on the eyes, day or night
+    • Lightweight & Fast: Instant load, minimal storage
+
+    Custom Notifications:
+    • Daily Alert: Daily Tithi & Janmrashi
+    • Ekadashi Alert: Dedicated Ekadashi reminder
+
+    Built for You:
+    • On‑device storage—no signup required
+    • No Ads—enjoy an uninterrupted experience
+
+
+    Stay rooted, stay informed — get the app today and keep your Gujarati calendar with you always.</p>
+</section>
+
+<!-- Big CTA -->
+<section class="cta-compact">
+  <h3>Stay connected to your Gujarati roots</h3>
+  <p>Accurate Tithi, Choghadiya, festivals, and reminders — all in one place.</p>
+
+  <a href="https://apps.apple.com/app/id6746111809" target="_blank" class="appstore-btn">
+    <img src="../assets/appstore.svg" alt="Download on the App Store">
+  </a>
+</section>
+
+<footer>
+  <p style="margin-top:24px">© 2026 Gujarati Calendar Pro • All rights reserved</p>
+</footer>
+</div>
+<script>
+  function scrollShots(dir) {
+    const el = document.getElementById('shots');
+    el.scrollBy({ left: dir * 300, behavior: 'smooth' });
+  }
+</script>
 </body>
 
 </html>
