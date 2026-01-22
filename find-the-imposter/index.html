@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find the Imposter - Party Game</title>
+  <meta name="description" content="Best Imposter App" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF4146;
+      /* App primary color */
+      --bg: #ffffff;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      background: #ffffff;
+      color: var(--text)
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 18px;
+      overflow: hidden;
+      flex: 0 0 84px;
+      border: 1px solid var(--border);
+      background: #fff
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 22px
+    }
+
+    p.lead {
+      margin: 6px 0 0;
+      color: var(--muted)
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      gap: 24px
+    }
+
+    .left {
+      max-width: 64%
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff
+    }
+
+    .btn-ghost {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text)
+    }
+
+    /* Screenshots */
+    .screenshots {
+      margin-top: 56px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px
+    }
+
+    .s-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px
+    }
+
+    .s-card {
+      background: #fff;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--border)
+    }
+
+    .s-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      max-height: 620px;
+      object-fit: contain
+    }
+
+    /* About & features */
+    .section {
+      margin-top: 56px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px
+    }
+
+    .feature {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all .2s ease
+    }
+
+    .feature:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 16px
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* CTA card (responsive, aligns with other sections) */
+    .big-cta.section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+      flex-wrap: wrap;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* left side text area */
+    .big-cta .cta-text {
+      flex: 1 1 360px;
+      min-width: 220px;
+    }
+
+    /* headline + subtext */
+    .big-cta .cta-text h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.05;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .big-cta .cta-text p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* badge container (keeps badge size consistent) */
+    .big-cta .cta-badge {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* App Store badge image */
+    .app-badge img {
+      display: block;
+      height: 52px;
+      /* desktop size */
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Footer center */
+    footer {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 680px) {
+      .big-cta.section {
+        padding: 20px;
+        gap: 14px;
+      }
+
+      .big-cta .cta-text h3 {
+        font-size: 20px;
+      }
+
+      /* stack content vertically and center the badge */
+      .big-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .big-cta .cta-badge {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .app-badge img {
+        height: 48px;
+      }
+    }
+
+    /* Compact CTA – mobile first */
+    .cta-compact {
+      max-width: 1100px;
+      margin: 24px auto 32px;
+      padding: 18px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      text-align: left;
+    }
+
+    .cta-compact h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .cta-compact p {
+      margin: 6px 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .appstore-btn img {
+      height: 42px;
+      display: block;
+    }
+
+    /* Desktop enhancement */
+    @media (min-width: 768px) {
+      .cta-compact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .cta-compact p {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Fix CTA horizontal padding & alignment */
+    .cta-compact {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    /* On tablet & desktop keep it centered */
+    @media (min-width: 768px) {
+      .cta-compact {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* App hero (top section) */
+    .app-hero {
+      padding: 24px 16px;
+    }
+
+    .app-hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* App icon */
+    .app-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Text block */
+    .app-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-text p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* App Store button */
+    .appstore-btn img {
+      height: 44px;
+    }
+
+    /* 🔥 Mobile fix */
+    @media (max-width: 640px) {
+      .app-hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .appstore-btn img {
+        margin-top: 8px;
+      }
+    }
+
+    .appstore-btn img {
+      width: 150px;
+      /* adjust as needed */
+      height: auto;
+    }
+
+    /* Privacy & Terms spacing fix */
+    .legal-links {
+      margin-top: 12px;
+      /* space from CTA */
+      margin-bottom: 16px;
+      /* space before footer */
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .legal-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .legal-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Reduce footer top spacing */
+    footer {
+      margin-top: 12px !important;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+
+<!-- Logo Section -->
+<section class="app-hero">
+  <div class="app-hero-content">
+    <img src="../assets/find-the-imposter-logo.png" alt="Find the Imposter App" class="app-logo" />
+
+    <div class="app-text">
+      <h1>Find Who's Different One</h1>
+      <p>
+        Gather friends, pass the phone — find the imposter, spot the liar, and vote! Offline pass-and-play, no signup.
+        Quick rounds, huge laughs, instant fun.
+      </p>
+
+      <a href="https://apps.apple.com/app/id6757858367" target="_blank" class="appstore-btn">
+        <img src="../assets/appstore.svg" alt="Download on the App Store">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Features -->
+<section id="features" class="section">
+  <h2>Why You’ll Love Find the Imposter</h2>
+
+  <div class="cards" style="margin-top:16px">
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">🎉</div>
+      <h3>Perfect Party Game</h3>
+      <p>Quick rounds, big laughs — ideal for parties, family nights, and get-togethers.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">📱</div>
+      <h3>Pass & Play</h3>
+      <p>One phone, all players. Pass the device and play together in the same room.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">🕵️</div>
+      <h3>Find the Imposter</h3>
+      <p>One player doesn’t know the word. Bluff, observe, and spot who’s different.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">🗣️</div>
+      <h3>Clues & Discussions</h3>
+      <p>Give clever clues, watch reactions, debate, and vote to reveal the truth.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">📚</div>
+      <h3>500+ Words</h3>
+      <p>Multiple word packs with hundreds of fresh words for endless replay.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">👨‍👩‍👧‍👦</div>
+      <h3>Family Friendly</h3>
+      <p>Safe word packs suitable for kids, teens, and adults.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">🚫</div>
+      <h3>No Signup Required</h3>
+      <p>No accounts, no setup. Open the app and start playing instantly.</p>
+    </div>
+
+    <div class="feature">
+      <div style="font-size:28px;margin-bottom:10px;">📶</div>
+      <h3>Offline Fun</h3>
+      <p>Play anywhere — no internet or Wi-Fi needed.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="section">
+  <h2>About the App</h2>
+  <p style="color:var(--muted); margin-top:8px; white-space: pre-line;">Find Who's Different One — the ultimate
+    party word guessing game. 
+    Gather friends, pass the phone, and spot the one player who doesn’t know the word. No signup · Offline · Instant
+    fun.
+
+    How to Play:
+    1. Gather friends and sit in a circle. Pass a single phone.
+    2. Each player taps to reveal their secret word — one player will see "IMPOSTER."
+    3. One by one, players say a short clue word related to the secret word. Keep it simple.
+    4. The imposter must bluff — act natural and try to blend in without knowing the word.
+    5. Discuss clues, watch reactions, and debate who seems suspicious.
+    6. When ready, vote for who you think is the imposter. Tap to reveal the truth!
+
+    Why you’ll love Find Imposter:
+    • Perfect for parties & family nights — quick rounds and big laughs.
+    • Offline & pass-and-play — no Wi-Fi, no account required.
+    • Easy to learn — start playing in seconds.
+    • Family-friendly — safe word content packs.
+    • Highly replayable — fresh words and bluffing every round.
+
+    Features:
+    • Fast, pick-up-and-play rounds.
+    • 500+ words across multiple word packs.
+    • Local pass-and-play party mode.
+    • Clean UI with clear instructions and quick setup.
+    • No login, no registration — open and play instantly.
+
+    Ready to play?
+    Download Find Who's Different One and start your next party game. Gather friends, find the imposter, and enjoy
+    the laughs — no signup, no waiting.</p>
+</section>
+
+<!-- Big CTA -->
+<section class="cta-compact">
+  <h3>Ready to Find the Imposter?</h3>
+  <p>Gather friends, pass the phone, and spot who doesn’t know the word — instant party fun, no signup needed.</p>
+
+  <a href="https://apps.apple.com/app/id6757858367" target="_blank" class="appstore-btn">
+    <img src="../assets/appstore.svg" alt="Download on the App Store">
+  </a>
+</section>
+
+
+<!-- Privacy & Terms of Service Section -->
+<!-- <div class="legal-links">
+  <a href="/privacy.html">Privacy Policy</a>
+  <span>•</span>
+  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula" target="_blank" rel="noopener">
+    Terms of Service
+  </a>
+</div> -->
+
+
+
+<footer>
+  <p style="margin-top:24px">© 2026 Find Who's Different • All rights reserved</p>
+</footer>
+</div>
+<script>
+  function scrollShots(dir) {
+    const el = document.getElementById('shots');
+    el.scrollBy({ left: dir * 300, behavior: 'smooth' });
+  }
+</script>
+</body>
+
+</html>
