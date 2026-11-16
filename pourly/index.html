@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pourly: Water Sort Puzzle</title>
+  <meta name="description"
+    content="Pourly is a calm water sort puzzle. Pour colored water from bottle to bottle until every bottle holds one color." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF6B5A;
+      /* App primary color (coral) */
+      --primary-dark: #D44D3F;
+      --bg: #ffffff;
+      --border: #e5e7eb;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text)
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 22px
+    }
+
+    /* App hero (top section) */
+    .app-hero {
+      padding: 24px 16px;
+    }
+
+    .app-hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .app-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    .app-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-text p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .store-btn img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .app-hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Features */
+    .section {
+      margin-top: 56px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px
+    }
+
+    .feature {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all .2s ease
+    }
+
+    .feature:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 16px
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Compact CTA */
+    .cta-compact {
+      max-width: 1100px;
+      margin: 40px 16px 32px;
+      padding: 18px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      text-align: left;
+    }
+
+    .cta-compact h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .cta-compact p {
+      margin: 6px 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (min-width: 768px) {
+      .cta-compact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-compact p {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Privacy & Terms */
+    .legal-links {
+      margin-top: 12px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .legal-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .legal-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo Section -->
+  <section class="app-hero">
+    <div class="app-hero-content">
+      <img src="../assets/pourly-logo.png" alt="Pourly: Water Sort Puzzle" class="app-logo" />
+
+      <div class="app-text">
+        <h1>Pourly: Water Sort Puzzle</h1>
+        <p>
+          A calm water sort puzzle. Pour colored water from bottle to bottle until every bottle holds one color.
+          Easy to learn, hard to put down — play offline, at your own pace.
+        </p>
+
+        <div class="store-buttons">
+          <!-- iOS: uncomment when the App Store version is live -->
+          <!-- <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" class="store-btn">
+            <img src="../assets/appstore.svg" alt="Download on the App Store">
+          </a> -->
+
+          <a href="https://play.google.com/store/apps/details?id=com.productivitypulse.pourly" target="_blank"
+            class="store-btn">
+            <img src="../assets/playstore.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <h2>Why You’ll Love Pourly</h2>
+
+    <div class="cards" style="margin-top:16px">
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">🧪</div>
+        <h3>1,000+ Levels</h3>
+        <p>A gentle difficulty curve, from easy pours to tricky sorts — and new levels keep coming.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">📅</div>
+        <h3>Daily Puzzle</h3>
+        <p>A fresh puzzle every day with extra coins, plus daily gifts and a streak to keep.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">❓</div>
+        <h3>Mystery Bottles</h3>
+        <p>Hidden colors that only show up as you pour, plus hard levels for a real challenge.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">🌍</div>
+        <h3>12 Worlds</h3>
+        <p>Travel through calm, animated scenes and earn 3 stars by solving in fewer moves.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">🎨</div>
+        <h3>Make It Yours</h3>
+        <p>Studio with bottle shapes, scenes and color sets to unlock and collect.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">👁️</div>
+        <h3>Colorblind Mode</h3>
+        <p>Adds a symbol to every color so everyone can sort with ease.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">🧘</div>
+        <h3>No Timer, No Rush</h3>
+        <p>Relax at your own pace with smooth pours, soft sounds and satisfying haptics.</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:28px;margin-bottom:10px;">📶</div>
+        <h3>Play Offline</h3>
+        <p>No account and no Wi-Fi needed. Open the app and start pouring.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Big CTA -->
+  <section class="cta-compact">
+    <div>
+      <h3>Ready to Pour?</h3>
+      <p>Pour, sort and relax — a quick, calming brain workout for any break.</p>
+    </div>
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.productivitypulse.pourly" target="_blank"
+        class="store-btn">
+        <img src="../assets/playstore.svg" alt="Get it on Google Play">
+      </a>
+    </div>
+  </section>
+
+  <!-- Privacy & Terms -->
+  <div class="legal-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <span>•</span>
+    <a href="terms.html">Terms of Use</a>
+    <span>•</span>
+    <a href="mailto:focusflow.apps@gmail.com">Contact</a>
+  </div>
+
+  <footer>
+    <p style="margin-top:24px">© 2026 Pourly • All rights reserved</p>
+  </footer>
+
+</body>
+
+</html>
